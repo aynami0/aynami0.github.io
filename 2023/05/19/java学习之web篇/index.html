@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1、基本概念web开发web，网页的意思，www.baidu.com静态web:1.html，css2.提供给所有人看的数据，始终不会变化！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java学习之JavaWeb篇">
+<meta property="og:url" content="http://example.com/2023/05/19/java%E5%AD%A6%E4%B9%A0%E4%B9%8Bweb%E7%AF%87/index.html">
+<meta property="og:site_name" content="aynami&#39;s Blog">
+<meta property="og:description" content="1、基本概念web开发web，网页的意思，www.baidu.com静态web:1.html，css2.提供给所有人看的数据，始终不会变化！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/1.jpg">
+<meta property="og:image" content="http://example.com/images/2.jpg">
+<meta property="og:image" content="http://example.com/images/3.jpg">
+<meta property="og:image" content="http://example.com/images/4.jpg">
+<meta property="og:image" content="http://example.com/images/5.jpg">
+<meta property="og:image" content="http://example.com/images/6.jpg">
+<meta property="og:image" content="http://example.com/images/7.jpg">
+<meta property="og:image" content="http://example.com/images/8.jpg">
+<meta property="og:image" content="http://example.com/images/9.jpg">
+<meta property="og:image" content="http://example.com/images/10.jpg">
+<meta property="og:image" content="http://example.com/images/11.jpg">
+<meta property="og:image" content="http://example.com/images/12.jpg">
+<meta property="og:image" content="http://example.com/images/13.jpg">
+<meta property="og:image" content="http://example.com/images/14.jpg">
+<meta property="og:image" content="http://example.com/images/15.jpg">
+<meta property="og:image" content="http://example.com/images/16.jpg">
+<meta property="og:image" content="http://example.com/images/17.jpg">
+<meta property="og:image" content="http://example.com/images/18.jpg">
+<meta property="og:image" content="http://example.com/images/19.jpg">
+<meta property="og:image" content="http://example.com/images/20.jpg">
+<meta property="og:image" content="http://example.com/images/21.jpg">
+<meta property="og:image" content="http://example.com/images/22.jpg">
+<meta property="og:image" content="http://example.com/images/23.jpg">
+<meta property="og:image" content="http://example.com/images/24.jpg">
+<meta property="og:image" content="http://example.com/images/25.jpg">
+<meta property="og:image" content="http://example.com/images/26.jpg">
+<meta property="article:published_time" content="2023-05-19T05:24:33.000Z">
+<meta property="article:modified_time" content="2023-05-19T08:50:39.955Z">
+<meta property="article:author" content="aynami">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/1.jpg">
+
+<link rel="canonical" href="http://example.com/2023/05/19/java%E5%AD%A6%E4%B9%A0%E4%B9%8Bweb%E7%AF%87/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Java学习之JavaWeb篇 | aynami's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+
+    
+  <!--pjax：防止跳转页面音乐暂停-->
+  <script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script> 
+</head> 
+
+
+
+<body itemscope itemtype="http://schema.org/WebPage">
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">aynami's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Code builds world !</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/19/java%E5%AD%A6%E4%B9%A0%E4%B9%8Bweb%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="aynami">
+      <meta itemprop="description" content="欢迎来到我的世界💜">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="aynami's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java学习之JavaWeb篇
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-05-19 13:24:33 / 修改时间：16:50:39" itemprop="dateCreated datePublished" datetime="2023-05-19T13:24:33+08:00">2023-05-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javaweb/" itemprop="url" rel="index"><span itemprop="name">javaweb</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="1、基本概念"><a href="#1、基本概念" class="headerlink" title="1、基本概念"></a>1、基本概念</h1><h2 id="web开发web，网页的意思，www-baidu-com静态web-1-html，css2-提供给所有人看的数据，始终不会变化！动态web-1-淘宝，几乎是所有的网站；-千人千面-2-提供给所有人看的数据，始终会变化，每个人在不同的时间，地点看到的信息各不相同。3-技术栈：ServLet-x2F-JSP，ASP，PHP"><a href="#web开发web，网页的意思，www-baidu-com静态web-1-html，css2-提供给所有人看的数据，始终不会变化！动态web-1-淘宝，几乎是所有的网站；-千人千面-2-提供给所有人看的数据，始终会变化，每个人在不同的时间，地点看到的信息各不相同。3-技术栈：ServLet-x2F-JSP，ASP，PHP" class="headerlink" title="web开发web，网页的意思，www.baidu.com静态web:1.html，css2.提供给所有人看的数据，始终不会变化！动态web:1.淘宝，几乎是所有的网站；(千人千面)2.提供给所有人看的数据，始终会变化，每个人在不同的时间，地点看到的信息各不相同。3.技术栈：ServLet&#x2F;JSP，ASP，PHP"></a>web开发<br>web，网页的意思，<a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a><br>静态web:<br>1.html，css<br>2.提供给所有人看的数据，始终不会变化！<span id="more"></span><br>动态web:<br>1.淘宝，几乎是所有的网站；(千人千面)<br>2.提供给所有人看的数据，始终会变化，每个人在不同的时间，地点看到的信息各不相同。<br>3.技术栈：ServLet&#x2F;JSP，ASP，PHP</h2><h2 id="1-2、Web-应用程序"><a href="#1-2、Web-应用程序" class="headerlink" title="1.2、Web 应用程序"></a>1.2、Web 应用程序</h2><h2 id="什么是程序-Web-应用程序：可以提供浏览器访问的程序；（提供DOS命令访问的程序，CS架构。😖）a-html、b-html…多个web资源，这些资源可以被外界访问，对外界提供服务。在互联网上能够访问到的任何一个页面或者资源，都存在于世界的某一个角落的计算机上。资源是真实存在的，URL-统一资源定位符-，网络世界的通讯地址。URL，这些统一的web资源会被放在同一个文件夹下，通过-web-应用程序，（Tomcat服务器）来提供。一个web应用程序由多部分组成：（静态web，动态web）html，css，jsjsp，servletjava程序jar包配置文件（Properties）web应用程序编写完毕之后，若想提供给外界访问：需要一个服务器来统一管理，🧐思：站在旁观者角度，有一堆资源，放在了一台电脑上，电脑上安装了一个服务器（Tomcat），来统一管理，为了与来访者交互，服务器设置了一些应用程序，针对不同来访者，采取不同方式响应。来访者看似只是鼠标的点击行为，实质是通过URL来访问应用程序，变相的访问一堆文件夹路径。（和你访问自家电脑的文件类似），通过域名解析IP地址，找到真实的电脑，通过web应用程序，类似资源管理器，访问文件夹的路径，找到文件所在，访问文件，（html，css，js，jsp，图片，视频，等等）。"><a href="#什么是程序-Web-应用程序：可以提供浏览器访问的程序；（提供DOS命令访问的程序，CS架构。😖）a-html、b-html…多个web资源，这些资源可以被外界访问，对外界提供服务。在互联网上能够访问到的任何一个页面或者资源，都存在于世界的某一个角落的计算机上。资源是真实存在的，URL-统一资源定位符-，网络世界的通讯地址。URL，这些统一的web资源会被放在同一个文件夹下，通过-web-应用程序，（Tomcat服务器）来提供。一个web应用程序由多部分组成：（静态web，动态web）html，css，jsjsp，servletjava程序jar包配置文件（Properties）web应用程序编写完毕之后，若想提供给外界访问：需要一个服务器来统一管理，🧐思：站在旁观者角度，有一堆资源，放在了一台电脑上，电脑上安装了一个服务器（Tomcat），来统一管理，为了与来访者交互，服务器设置了一些应用程序，针对不同来访者，采取不同方式响应。来访者看似只是鼠标的点击行为，实质是通过URL来访问应用程序，变相的访问一堆文件夹路径。（和你访问自家电脑的文件类似），通过域名解析IP地址，找到真实的电脑，通过web应用程序，类似资源管理器，访问文件夹的路径，找到文件所在，访问文件，（html，css，js，jsp，图片，视频，等等）。" class="headerlink" title="什么是程序?Web 应用程序：可以提供浏览器访问的程序；（提供DOS命令访问的程序，CS架构。😖）a.html、b.html…多个web资源，这些资源可以被外界访问，对外界提供服务。在互联网上能够访问到的任何一个页面或者资源，都存在于世界的某一个角落的计算机上。资源是真实存在的，URL(统一资源定位符)，网络世界的通讯地址。URL，这些统一的web资源会被放在同一个文件夹下，通过 web 应用程序，（Tomcat服务器）来提供。一个web应用程序由多部分组成：（静态web，动态web）html，css，jsjsp，servletjava程序jar包配置文件（Properties）web应用程序编写完毕之后，若想提供给外界访问：需要一个服务器来统一管理，🧐思：站在旁观者角度，有一堆资源，放在了一台电脑上，电脑上安装了一个服务器（Tomcat），来统一管理，为了与来访者交互，服务器设置了一些应用程序，针对不同来访者，采取不同方式响应。来访者看似只是鼠标的点击行为，实质是通过URL来访问应用程序，变相的访问一堆文件夹路径。（和你访问自家电脑的文件类似），通过域名解析IP地址，找到真实的电脑，通过web应用程序，类似资源管理器，访问文件夹的路径，找到文件所在，访问文件，（html，css，js，jsp，图片，视频，等等）。"></a>什么是程序?<br>Web 应用程序：可以提供浏览器访问的程序；（提供DOS命令访问的程序，CS架构。😖）<br>a.html、b.html…多个web资源，这些资源可以被外界访问，对外界提供服务。<br>在互联网上能够访问到的任何一个页面或者资源，都存在于世界的某一个角落的计算机上。<br>资源是真实存在的，URL(统一资源定位符)，网络世界的通讯地址。<br>URL，这些统一的web资源会被放在同一个文件夹下，<br>通过 web 应用程序，（Tomcat服务器）来提供。<br>一个web应用程序由多部分组成：（静态web，动态web）<br>html，css，js<br>jsp，servlet<br>java程序<br>jar包<br>配置文件（Properties）<br>web应用程序编写完毕之后，若想提供给外界访问：需要一个服务器来统一管理，<br>🧐思：<br>站在旁观者角度，有一堆资源，放在了一台电脑上，电脑上安装了一个服务器（Tomcat），来统一管理，为了与来访者交互，服务器设置了一些应用程序，针对不同来访者，采取不同方式响应。来访者看似只是鼠标的点击行为，实质是通过URL来访问应用程序，变相的访问一堆文件夹路径。（和你访问自家电脑的文件类似），通过域名解析IP地址，找到真实的电脑，通过web应用程序，类似资源管理器，访问文件夹的路径，找到文件所在，访问文件，（html，css，js，jsp，图片，视频，等等）。</h2><h2 id="静态web"><a href="#静态web" class="headerlink" title="静态web"></a>静态web</h2><h2 id="htm、-html，这些都是网页的后缀，如果服务器上一直存在这些东西，我们就可以直接进行读取。网络：静态web的缺点：web页面无法动态更新，所有用户看到的都是同一个页面1-轮播图，点击特效：伪动态2-JavaScript-实际开发中，用的最多-3-VBScript它无法和数据库交互（数据无法持久化，无法交互）"><a href="#htm、-html，这些都是网页的后缀，如果服务器上一直存在这些东西，我们就可以直接进行读取。网络：静态web的缺点：web页面无法动态更新，所有用户看到的都是同一个页面1-轮播图，点击特效：伪动态2-JavaScript-实际开发中，用的最多-3-VBScript它无法和数据库交互（数据无法持久化，无法交互）" class="headerlink" title=".htm、.html，这些都是网页的后缀，如果服务器上一直存在这些东西，我们就可以直接进行读取。网络：静态web的缺点：web页面无法动态更新，所有用户看到的都是同一个页面1.轮播图，点击特效：伪动态2.JavaScript (实际开发中，用的最多)3.VBScript它无法和数据库交互（数据无法持久化，无法交互）"></a><em>.htm、</em>.html，这些都是网页的后缀，如果服务器上一直存在这些东西，我们就可以直接进行读取。网络：<br><img data-src="/images/1.jpg" alt="图片"><br>静态web的缺点：<br>web页面无法动态更新，所有用户看到的都是同一个页面<br>1.轮播图，点击特效：伪动态<br>2.JavaScript (实际开发中，用的最多)<br>3.VBScript<br>它无法和数据库交互（数据无法持久化，无法交互）</h2><h2 id="动态web"><a href="#动态web" class="headerlink" title="动态web"></a>动态web</h2><h2 id="页面会动态展示：“web页面展示的效果因人而异“；缺点：1-服务器的动态web资源出现了错误，我们需要重新编写我们的后台程序，重新发布；2-停机维护优点：1-web页面可以动态更新，所有用户看到的都不是同一个页面2-它可以和数据库交互（数据持久化：注册，个人信息）3-架构师更牛逼"><a href="#页面会动态展示：“web页面展示的效果因人而异“；缺点：1-服务器的动态web资源出现了错误，我们需要重新编写我们的后台程序，重新发布；2-停机维护优点：1-web页面可以动态更新，所有用户看到的都不是同一个页面2-它可以和数据库交互（数据持久化：注册，个人信息）3-架构师更牛逼" class="headerlink" title="页面会动态展示：“web页面展示的效果因人而异“；缺点：1.服务器的动态web资源出现了错误，我们需要重新编写我们的后台程序，重新发布；2.停机维护优点：1.web页面可以动态更新，所有用户看到的都不是同一个页面2.它可以和数据库交互（数据持久化：注册，个人信息）3.架构师更牛逼"></a>页面会动态展示：“web页面展示的效果因人而异“；<br><img data-src="/images/2.jpg" alt="图片"><br>缺点：<br>1.服务器的动态web资源出现了错误，我们需要重新编写我们的后台程序，重新发布；<br>2.停机维护<br>优点：<br>1.web页面可以动态更新，所有用户看到的都不是同一个页面<br>2.它可以和数据库交互（数据持久化：注册，个人信息）<br>3.架构师更牛逼</h2><h1 id="2、Web服务器"><a href="#2、Web服务器" class="headerlink" title="2、Web服务器"></a>2、Web服务器</h1><h2 id="2-1、技术讲解"><a href="#2-1、技术讲解" class="headerlink" title="2.1、技术讲解"></a>2.1、技术讲解</h2><p>ASP，</p>
+<p>微软：国内最早流行的就是ASP；<br>在HTML中嵌入了VB的脚本，ASP+COM；<br>在ASP开发中，基本一个页面都有几千行的业务代码，页面极其混乱。<br>维护成本高！<br>C#<br>IIS服务器<br><img data-src="/images/3.jpg" alt="图片"><br>PHP</p>
+<p>开发速度快，功能很强大，跨平台，代码很简单（）<br>无法承载大访问量的情况（局限性）<br>JSP&#x2F;Servlet：</p>
+<h2 id="B-x2F-S：浏览器和服务器C-x2F-S：客户端和服务器sun公司主推的B-x2F-S架构基于Java语言的（所有大公司，或者一些开源的组件，都是用java写的）可以承载三高问题带来的影响；（高并发，高可用，高性能）语法像ASP，ASP–-gt-JSP，加强市场强度；"><a href="#B-x2F-S：浏览器和服务器C-x2F-S：客户端和服务器sun公司主推的B-x2F-S架构基于Java语言的（所有大公司，或者一些开源的组件，都是用java写的）可以承载三高问题带来的影响；（高并发，高可用，高性能）语法像ASP，ASP–-gt-JSP，加强市场强度；" class="headerlink" title="B&#x2F;S：浏览器和服务器C&#x2F;S：客户端和服务器sun公司主推的B&#x2F;S架构基于Java语言的（所有大公司，或者一些开源的组件，都是用java写的）可以承载三高问题带来的影响；（高并发，高可用，高性能）语法像ASP，ASP–&gt;JSP，加强市场强度；"></a>B&#x2F;S：浏览器和服务器<br>C&#x2F;S：客户端和服务器<br>sun公司主推的B&#x2F;S架构<br>基于Java语言的（所有大公司，或者一些开源的组件，都是用java写的）<br>可以承载三高问题带来的影响；（高并发，高可用，高性能）<br>语法像ASP，ASP–&gt;JSP，加强市场强度；</h2><h2 id="2-2、web服务器"><a href="#2-2、web服务器" class="headerlink" title="2.2、web服务器"></a>2.2、web服务器</h2><p>服务器是一种被动操作，用来处理用户的一些请求和给用户一些响应信息；<br>IIS<br>微软的，ASP…</p>
+<p>Tomcat<br>面向百度编程：<br>Tomcat是Apache 软件基金会（Apache Software Foundation）的Jakarta 项目中的一个核心项目，由于有了Sun 的参与和支持，最新的Servlet 和JSP 规范总是能在Tomcat 中得到体现，Tomcat 5支持最新的Servlet 2.4 和JSP 2.0 规范。因为Tomcat 技术先进、性能稳定，而且免费，因而深受Java 爱好者的喜爱并得到了部分软件开发商的认可，成为目前比较流行的Web 应用服务器。<br>Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于轻量级应用服务器，在中小型系统和并发访问用户不是很多的场合下被普遍使用，是开发和调试JSP 程序的首选。对于一个Java初学Web者来说，它是最佳的选择。<br>诀窍是，当配置正确时，Apache 为HTML页面服务，而Tomcat 实际上运行JSP 页面和Servlet。另外，Tomcat和IIS等Web服务器一样，具有处理HTML页面的功能，另外它还是一个Servlet和JSP容器，独立的Servlet容器是Tomcat的默认模式。不过，Tomcat处理静态HTML的能力不如Apache服务器。</p>
+<p>下载Tomcat：<br>1.安装或者解压<br>2.了解配置文件及目录结构<br>3.这个东西的作用<br>目录结构：(反射和多线程所学)</p>
+<h2 id="jdk和jre的区别：一个-java，一个-class"><a href="#jdk和jre的区别：一个-java，一个-class" class="headerlink" title="jdk和jre的区别：一个.java，一个.class"></a>jdk和jre的区别：一个.java，一个.class<br><img data-src="/images/4.jpg" alt="图片"></h2><h1 id="3、Tomcat"><a href="#3、Tomcat" class="headerlink" title="3、Tomcat"></a>3、Tomcat</h1><h2 id="3-1、安装Tomcat"><a href="#3-1、安装Tomcat" class="headerlink" title="3.1、安装Tomcat"></a>3.1、安装Tomcat</h2><h2 id="Tomcat官网：http-tomcat-apache-org-采用了Tomcat-9-的版本"><a href="#Tomcat官网：http-tomcat-apache-org-采用了Tomcat-9-的版本" class="headerlink" title="Tomcat官网：http://tomcat.apache.org/采用了Tomcat 9 的版本"></a>Tomcat官网：<a target="_blank" rel="noopener" href="http://tomcat.apache.org/">http://tomcat.apache.org/</a><br>采用了Tomcat 9 的版本<br><img data-src="/images/5.jpg" alt="图片"><br><img data-src="/images/6.jpg" alt="图片"></h2><h2 id="3-2、Tomcat启动和配置"><a href="#3-2、Tomcat启动和配置" class="headerlink" title="3.2、Tomcat启动和配置"></a>3.2、Tomcat启动和配置</h2><p><img data-src="/images/7.jpg" alt="图片"><br>启动和关闭Tomcat<br><img data-src="/images/8.jpg" alt="图片"><br>Tomcat界面<br><img data-src="/images/9.jpg" alt="图片"><br>启动测试：<a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080/</a><br><img data-src="/images/10.jpg" alt="图片"><br>启动测试：<a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080/</a></p>
+<p>可能遇到的问题：<br>1.Java环境变量没有配置（可能会闪退）<br>2.闪退问题：需要配置兼容性<br>3.乱码问题：配置文件中设置<br>一个文件夹代表一个web应用</p>
+<h2 id="jsp就是在HTML里面嵌入一些java代码乱码问题：服务器核心配置文件"><a href="#jsp就是在HTML里面嵌入一些java代码乱码问题：服务器核心配置文件" class="headerlink" title="jsp就是在HTML里面嵌入一些java代码乱码问题：服务器核心配置文件"></a>jsp就是在HTML里面嵌入一些java代码<br>乱码问题：<br><img data-src="/images/11.jpg" alt="图片"><br>服务器核心配置文件<br><img data-src="/images/12.jpg" alt="图片"></h2><h3 id="3-2-1、修改访问页面"><a href="#3-2-1、修改访问页面" class="headerlink" title="3.2.1、修改访问页面"></a>3.2.1、修改访问页面</h3><h2 id="修改D-Java-apache-tomcat-9-0-37-webapps-ROOT下的index-jsp，修改之后刷新即可，不需要重启服务器"><a href="#修改D-Java-apache-tomcat-9-0-37-webapps-ROOT下的index-jsp，修改之后刷新即可，不需要重启服务器" class="headerlink" title="修改D:\Java\apache-tomcat-9.0.37\webapps\ROOT下的index.jsp，修改之后刷新即可，不需要重启服务器"></a>修改D:\Java\apache-tomcat-9.0.37\webapps\ROOT下的index.jsp，修改之后刷新即可，不需要重启服务器<br><img data-src="/images/13.jpg" alt="图片"><br><img data-src="/images/14.jpg" alt="图片"></h2><h3 id="3-2-2、修改访问端口号"><a href="#3-2-2、修改访问端口号" class="headerlink" title="3.2.2、修改访问端口号"></a>3.2.2、修改访问端口号</h3><h2 id="修改D-Java-apache-tomcat-9-0-37-conf下的server-xml，更改了服务器的配置文件，必须重启服务器，否则无法生效。"><a href="#修改D-Java-apache-tomcat-9-0-37-conf下的server-xml，更改了服务器的配置文件，必须重启服务器，否则无法生效。" class="headerlink" title="修改D:\Java\apache-tomcat-9.0.37\conf下的server.xml，更改了服务器的配置文件，必须重启服务器，否则无法生效。"></a>修改D:\Java\apache-tomcat-9.0.37\conf下的server.xml，更改了服务器的配置文件，必须重启服务器，否则无法生效。<br><img data-src="/images/15.jpg" alt="图片"><br><img data-src="/images/16.jpg" alt="图片"></h2><h3 id="3-2-3、修改域名"><a href="#3-2-3、修改域名" class="headerlink" title="3.2.3、修改域名"></a>3.2.3、修改域名</h3><h2 id="修改D-Java-apache-tomcat-9-0-37-conf下的server-xml，更改了服务器的配置文件，必须重启服务器，否则无法生效。不要修改引擎里面的哦，修改标签中的，修改之后还可以访问到吗？修改C-Windows-System32-drivers-etc下的hosts文件，更改了服务器的配置文件，必须重启服务器，否则无法生效。Windows底层文件被修改，提示权限不够，采用管理员模式启动。"><a href="#修改D-Java-apache-tomcat-9-0-37-conf下的server-xml，更改了服务器的配置文件，必须重启服务器，否则无法生效。不要修改引擎里面的哦，修改标签中的，修改之后还可以访问到吗？修改C-Windows-System32-drivers-etc下的hosts文件，更改了服务器的配置文件，必须重启服务器，否则无法生效。Windows底层文件被修改，提示权限不够，采用管理员模式启动。" class="headerlink" title="修改D:\Java\apache-tomcat-9.0.37\conf下的server.xml，更改了服务器的配置文件，必须重启服务器，否则无法生效。不要修改引擎里面的哦，修改标签中的，修改之后还可以访问到吗？修改C:\Windows\System32\drivers\etc下的hosts文件，更改了服务器的配置文件，必须重启服务器，否则无法生效。Windows底层文件被修改，提示权限不够，采用管理员模式启动。"></a>修改D:\Java\apache-tomcat-9.0.37\conf下的server.xml，更改了服务器的配置文件，必须重启服务器，否则无法生效。<br>不要修改引擎里面的哦，修改<Host>标签中的，修改之后还可以访问到吗？<br><img data-src="/images/17.jpg" alt="图片"><br><img data-src="/images/18.jpg" alt="图片"><br>修改C:\Windows\System32\drivers\etc下的hosts文件，更改了服务器的配置文件，必须重启服务器，否则无法生效。<br>Windows底层文件被修改，提示权限不够，采用管理员模式启动。<br><img data-src="/images/19.jpg" alt="图片"><br><img data-src="/images/20.jpg" alt="图片"></h2><h3 id="3-2-4、修改应用存放目录"><a href="#3-2-4、修改应用存放目录" class="headerlink" title="3.2.4、修改应用存放目录"></a>3.2.4、修改应用存放目录</h3><h2 id=""><a href="#" class="headerlink" title=""></a><img data-src="/images/21.jpg" alt="图片"><br><img data-src="/images/22.jpg" alt="图片"></h2><h3 id="3-2-5、总结"><a href="#3-2-5、总结" class="headerlink" title="3.2.5、总结"></a>3.2.5、总结</h3><h2 id="可以配置启动的端口号1-Tomcat-的默认端口号为：80802-MySQL-的默认端口号为：33063-HTTP-的默认端口号为：804-HTTPS-的默认端口号为：443可以配置主机名称默认的主机名称：localhost–-gt-127-0-0-1默认的网站应用存放的位置为：webapps文件夹"><a href="#可以配置启动的端口号1-Tomcat-的默认端口号为：80802-MySQL-的默认端口号为：33063-HTTP-的默认端口号为：804-HTTPS-的默认端口号为：443可以配置主机名称默认的主机名称：localhost–-gt-127-0-0-1默认的网站应用存放的位置为：webapps文件夹" class="headerlink" title="可以配置启动的端口号1.Tomcat 的默认端口号为：80802.MySQL 的默认端口号为：33063.HTTP 的默认端口号为：804.HTTPS 的默认端口号为：443可以配置主机名称默认的主机名称：localhost–&gt;127.0.0.1默认的网站应用存放的位置为：webapps文件夹"></a>可以配置启动的端口号<br>1.Tomcat 的默认端口号为：8080<br>2.MySQL 的默认端口号为：3306<br>3.HTTP 的默认端口号为：80<br>4.HTTPS 的默认端口号为：443<br><img data-src="/images/23.jpg" alt="图片"><br>可以配置主机名称<br>默认的主机名称：localhost–&gt;127.0.0.1<br>默认的网站应用存放的位置为：webapps文件夹<br><img data-src="/images/24.jpg" alt="图片"></h2><h2 id="3-3、发布一个网站"><a href="#3-3、发布一个网站" class="headerlink" title="3.3、发布一个网站"></a>3.3、发布一个网站</h2><h2 id="不会就模仿"><a href="#不会就模仿" class="headerlink" title="不会就模仿"></a>不会就模仿<br><img data-src="/images/25.jpg" alt="图片"><br><img data-src="/images/26.jpg" alt="图片"></h2><h2 id="3-5、网站结构（也是约定）"><a href="#3-5、网站结构（也是约定）" class="headerlink" title="3.5、网站结构（也是约定）"></a>3.5、网站结构（也是约定）</h2><p>1.将自己写的网站，放到服务器（Tomcat）中指定的web应用程序的文件夹下，就可以访问了<br>2.网站应有的结构：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">--webapps:Tomcat服务器的web目录</span><br><span class="line">    --ROOT</span><br><span class="line">    --qmei：网站的目录名</span><br><span class="line">    	--WEB-INF</span><br><span class="line">    		--classes ：java程序</span><br><span class="line">    		--lib：web应用所依赖的jar包</span><br><span class="line">    		--web.xml:网站配置文件</span><br><span class="line">        --index.html 默认的首页</span><br><span class="line">        --static 静态资源文件</span><br><span class="line">            --css</span><br><span class="line">            	--style.css</span><br><span class="line">            -js</span><br><span class="line">            --img</span><br><span class="line">        --...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------已经到底啦！<i class="fa fa-paw"></i>-------------</div>
+    
+</div>
+
+  
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/05/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" rel="prev" title="SpringBoot基础">
+      <i class="fa fa-chevron-left"></i> SpringBoot基础
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1%E3%80%81%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">1.</span> <span class="nav-text">1、基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#web%E5%BC%80%E5%8F%91web%EF%BC%8C%E7%BD%91%E9%A1%B5%E7%9A%84%E6%84%8F%E6%80%9D%EF%BC%8Cwww-baidu-com%E9%9D%99%E6%80%81web-1-html%EF%BC%8Ccss2-%E6%8F%90%E4%BE%9B%E7%BB%99%E6%89%80%E6%9C%89%E4%BA%BA%E7%9C%8B%E7%9A%84%E6%95%B0%E6%8D%AE%EF%BC%8C%E5%A7%8B%E7%BB%88%E4%B8%8D%E4%BC%9A%E5%8F%98%E5%8C%96%EF%BC%81%E5%8A%A8%E6%80%81web-1-%E6%B7%98%E5%AE%9D%EF%BC%8C%E5%87%A0%E4%B9%8E%E6%98%AF%E6%89%80%E6%9C%89%E7%9A%84%E7%BD%91%E7%AB%99%EF%BC%9B-%E5%8D%83%E4%BA%BA%E5%8D%83%E9%9D%A2-2-%E6%8F%90%E4%BE%9B%E7%BB%99%E6%89%80%E6%9C%89%E4%BA%BA%E7%9C%8B%E7%9A%84%E6%95%B0%E6%8D%AE%EF%BC%8C%E5%A7%8B%E7%BB%88%E4%BC%9A%E5%8F%98%E5%8C%96%EF%BC%8C%E6%AF%8F%E4%B8%AA%E4%BA%BA%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%8C%E5%9C%B0%E7%82%B9%E7%9C%8B%E5%88%B0%E7%9A%84%E4%BF%A1%E6%81%AF%E5%90%84%E4%B8%8D%E7%9B%B8%E5%90%8C%E3%80%823-%E6%8A%80%E6%9C%AF%E6%A0%88%EF%BC%9AServLet-x2F-JSP%EF%BC%8CASP%EF%BC%8CPHP"><span class="nav-number">1.1.</span> <span class="nav-text">web开发web，网页的意思，www.baidu.com静态web:1.html，css2.提供给所有人看的数据，始终不会变化！动态web:1.淘宝，几乎是所有的网站；(千人千面)2.提供给所有人看的数据，始终会变化，每个人在不同的时间，地点看到的信息各不相同。3.技术栈：ServLet&#x2F;JSP，ASP，PHP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2%E3%80%81Web-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"><span class="nav-number">1.2.</span> <span class="nav-text">1.2、Web 应用程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%A8%8B%E5%BA%8F-Web-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%EF%BC%9A%E5%8F%AF%E4%BB%A5%E6%8F%90%E4%BE%9B%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE%E7%9A%84%E7%A8%8B%E5%BA%8F%EF%BC%9B%EF%BC%88%E6%8F%90%E4%BE%9BDOS%E5%91%BD%E4%BB%A4%E8%AE%BF%E9%97%AE%E7%9A%84%E7%A8%8B%E5%BA%8F%EF%BC%8CCS%E6%9E%B6%E6%9E%84%E3%80%82%F0%9F%98%96%EF%BC%89a-html%E3%80%81b-html%E2%80%A6%E5%A4%9A%E4%B8%AAweb%E8%B5%84%E6%BA%90%EF%BC%8C%E8%BF%99%E4%BA%9B%E8%B5%84%E6%BA%90%E5%8F%AF%E4%BB%A5%E8%A2%AB%E5%A4%96%E7%95%8C%E8%AE%BF%E9%97%AE%EF%BC%8C%E5%AF%B9%E5%A4%96%E7%95%8C%E6%8F%90%E4%BE%9B%E6%9C%8D%E5%8A%A1%E3%80%82%E5%9C%A8%E4%BA%92%E8%81%94%E7%BD%91%E4%B8%8A%E8%83%BD%E5%A4%9F%E8%AE%BF%E9%97%AE%E5%88%B0%E7%9A%84%E4%BB%BB%E4%BD%95%E4%B8%80%E4%B8%AA%E9%A1%B5%E9%9D%A2%E6%88%96%E8%80%85%E8%B5%84%E6%BA%90%EF%BC%8C%E9%83%BD%E5%AD%98%E5%9C%A8%E4%BA%8E%E4%B8%96%E7%95%8C%E7%9A%84%E6%9F%90%E4%B8%80%E4%B8%AA%E8%A7%92%E8%90%BD%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8A%E3%80%82%E8%B5%84%E6%BA%90%E6%98%AF%E7%9C%9F%E5%AE%9E%E5%AD%98%E5%9C%A8%E7%9A%84%EF%BC%8CURL-%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E5%AE%9A%E4%BD%8D%E7%AC%A6-%EF%BC%8C%E7%BD%91%E7%BB%9C%E4%B8%96%E7%95%8C%E7%9A%84%E9%80%9A%E8%AE%AF%E5%9C%B0%E5%9D%80%E3%80%82URL%EF%BC%8C%E8%BF%99%E4%BA%9B%E7%BB%9F%E4%B8%80%E7%9A%84web%E8%B5%84%E6%BA%90%E4%BC%9A%E8%A2%AB%E6%94%BE%E5%9C%A8%E5%90%8C%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%EF%BC%8C%E9%80%9A%E8%BF%87-web-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%EF%BC%8C%EF%BC%88Tomcat%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%89%E6%9D%A5%E6%8F%90%E4%BE%9B%E3%80%82%E4%B8%80%E4%B8%AAweb%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%94%B1%E5%A4%9A%E9%83%A8%E5%88%86%E7%BB%84%E6%88%90%EF%BC%9A%EF%BC%88%E9%9D%99%E6%80%81web%EF%BC%8C%E5%8A%A8%E6%80%81web%EF%BC%89html%EF%BC%8Ccss%EF%BC%8Cjsjsp%EF%BC%8Cservletjava%E7%A8%8B%E5%BA%8Fjar%E5%8C%85%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%88Properties%EF%BC%89web%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%BC%96%E5%86%99%E5%AE%8C%E6%AF%95%E4%B9%8B%E5%90%8E%EF%BC%8C%E8%8B%A5%E6%83%B3%E6%8F%90%E4%BE%9B%E7%BB%99%E5%A4%96%E7%95%8C%E8%AE%BF%E9%97%AE%EF%BC%9A%E9%9C%80%E8%A6%81%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%9D%A5%E7%BB%9F%E4%B8%80%E7%AE%A1%E7%90%86%EF%BC%8C%F0%9F%A7%90%E6%80%9D%EF%BC%9A%E7%AB%99%E5%9C%A8%E6%97%81%E8%A7%82%E8%80%85%E8%A7%92%E5%BA%A6%EF%BC%8C%E6%9C%89%E4%B8%80%E5%A0%86%E8%B5%84%E6%BA%90%EF%BC%8C%E6%94%BE%E5%9C%A8%E4%BA%86%E4%B8%80%E5%8F%B0%E7%94%B5%E8%84%91%E4%B8%8A%EF%BC%8C%E7%94%B5%E8%84%91%E4%B8%8A%E5%AE%89%E8%A3%85%E4%BA%86%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88Tomcat%EF%BC%89%EF%BC%8C%E6%9D%A5%E7%BB%9F%E4%B8%80%E7%AE%A1%E7%90%86%EF%BC%8C%E4%B8%BA%E4%BA%86%E4%B8%8E%E6%9D%A5%E8%AE%BF%E8%80%85%E4%BA%A4%E4%BA%92%EF%BC%8C%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AE%BE%E7%BD%AE%E4%BA%86%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%EF%BC%8C%E9%92%88%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9D%A5%E8%AE%BF%E8%80%85%EF%BC%8C%E9%87%87%E5%8F%96%E4%B8%8D%E5%90%8C%E6%96%B9%E5%BC%8F%E5%93%8D%E5%BA%94%E3%80%82%E6%9D%A5%E8%AE%BF%E8%80%85%E7%9C%8B%E4%BC%BC%E5%8F%AA%E6%98%AF%E9%BC%A0%E6%A0%87%E7%9A%84%E7%82%B9%E5%87%BB%E8%A1%8C%E4%B8%BA%EF%BC%8C%E5%AE%9E%E8%B4%A8%E6%98%AF%E9%80%9A%E8%BF%87URL%E6%9D%A5%E8%AE%BF%E9%97%AE%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%EF%BC%8C%E5%8F%98%E7%9B%B8%E7%9A%84%E8%AE%BF%E9%97%AE%E4%B8%80%E5%A0%86%E6%96%87%E4%BB%B6%E5%A4%B9%E8%B7%AF%E5%BE%84%E3%80%82%EF%BC%88%E5%92%8C%E4%BD%A0%E8%AE%BF%E9%97%AE%E8%87%AA%E5%AE%B6%E7%94%B5%E8%84%91%E7%9A%84%E6%96%87%E4%BB%B6%E7%B1%BB%E4%BC%BC%EF%BC%89%EF%BC%8C%E9%80%9A%E8%BF%87%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90IP%E5%9C%B0%E5%9D%80%EF%BC%8C%E6%89%BE%E5%88%B0%E7%9C%9F%E5%AE%9E%E7%9A%84%E7%94%B5%E8%84%91%EF%BC%8C%E9%80%9A%E8%BF%87web%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%EF%BC%8C%E7%B1%BB%E4%BC%BC%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%E5%99%A8%EF%BC%8C%E8%AE%BF%E9%97%AE%E6%96%87%E4%BB%B6%E5%A4%B9%E7%9A%84%E8%B7%AF%E5%BE%84%EF%BC%8C%E6%89%BE%E5%88%B0%E6%96%87%E4%BB%B6%E6%89%80%E5%9C%A8%EF%BC%8C%E8%AE%BF%E9%97%AE%E6%96%87%E4%BB%B6%EF%BC%8C%EF%BC%88html%EF%BC%8Ccss%EF%BC%8Cjs%EF%BC%8Cjsp%EF%BC%8C%E5%9B%BE%E7%89%87%EF%BC%8C%E8%A7%86%E9%A2%91%EF%BC%8C%E7%AD%89%E7%AD%89%EF%BC%89%E3%80%82"><span class="nav-number">1.3.</span> <span class="nav-text">什么是程序?Web 应用程序：可以提供浏览器访问的程序；（提供DOS命令访问的程序，CS架构。😖）a.html、b.html…多个web资源，这些资源可以被外界访问，对外界提供服务。在互联网上能够访问到的任何一个页面或者资源，都存在于世界的某一个角落的计算机上。资源是真实存在的，URL(统一资源定位符)，网络世界的通讯地址。URL，这些统一的web资源会被放在同一个文件夹下，通过 web 应用程序，（Tomcat服务器）来提供。一个web应用程序由多部分组成：（静态web，动态web）html，css，jsjsp，servletjava程序jar包配置文件（Properties）web应用程序编写完毕之后，若想提供给外界访问：需要一个服务器来统一管理，🧐思：站在旁观者角度，有一堆资源，放在了一台电脑上，电脑上安装了一个服务器（Tomcat），来统一管理，为了与来访者交互，服务器设置了一些应用程序，针对不同来访者，采取不同方式响应。来访者看似只是鼠标的点击行为，实质是通过URL来访问应用程序，变相的访问一堆文件夹路径。（和你访问自家电脑的文件类似），通过域名解析IP地址，找到真实的电脑，通过web应用程序，类似资源管理器，访问文件夹的路径，找到文件所在，访问文件，（html，css，js，jsp，图片，视频，等等）。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81web"><span class="nav-number">1.4.</span> <span class="nav-text">静态web</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#htm%E3%80%81-html%EF%BC%8C%E8%BF%99%E4%BA%9B%E9%83%BD%E6%98%AF%E7%BD%91%E9%A1%B5%E7%9A%84%E5%90%8E%E7%BC%80%EF%BC%8C%E5%A6%82%E6%9E%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E4%B8%80%E7%9B%B4%E5%AD%98%E5%9C%A8%E8%BF%99%E4%BA%9B%E4%B8%9C%E8%A5%BF%EF%BC%8C%E6%88%91%E4%BB%AC%E5%B0%B1%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E8%BF%9B%E8%A1%8C%E8%AF%BB%E5%8F%96%E3%80%82%E7%BD%91%E7%BB%9C%EF%BC%9A%E9%9D%99%E6%80%81web%E7%9A%84%E7%BC%BA%E7%82%B9%EF%BC%9Aweb%E9%A1%B5%E9%9D%A2%E6%97%A0%E6%B3%95%E5%8A%A8%E6%80%81%E6%9B%B4%E6%96%B0%EF%BC%8C%E6%89%80%E6%9C%89%E7%94%A8%E6%88%B7%E7%9C%8B%E5%88%B0%E7%9A%84%E9%83%BD%E6%98%AF%E5%90%8C%E4%B8%80%E4%B8%AA%E9%A1%B5%E9%9D%A21-%E8%BD%AE%E6%92%AD%E5%9B%BE%EF%BC%8C%E7%82%B9%E5%87%BB%E7%89%B9%E6%95%88%EF%BC%9A%E4%BC%AA%E5%8A%A8%E6%80%812-JavaScript-%E5%AE%9E%E9%99%85%E5%BC%80%E5%8F%91%E4%B8%AD%EF%BC%8C%E7%94%A8%E7%9A%84%E6%9C%80%E5%A4%9A-3-VBScript%E5%AE%83%E6%97%A0%E6%B3%95%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%A4%E4%BA%92%EF%BC%88%E6%95%B0%E6%8D%AE%E6%97%A0%E6%B3%95%E6%8C%81%E4%B9%85%E5%8C%96%EF%BC%8C%E6%97%A0%E6%B3%95%E4%BA%A4%E4%BA%92%EF%BC%89"><span class="nav-number">1.5.</span> <span class="nav-text">.htm、.html，这些都是网页的后缀，如果服务器上一直存在这些东西，我们就可以直接进行读取。网络：静态web的缺点：web页面无法动态更新，所有用户看到的都是同一个页面1.轮播图，点击特效：伪动态2.JavaScript (实际开发中，用的最多)3.VBScript它无法和数据库交互（数据无法持久化，无法交互）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81web"><span class="nav-number">1.6.</span> <span class="nav-text">动态web</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B5%E9%9D%A2%E4%BC%9A%E5%8A%A8%E6%80%81%E5%B1%95%E7%A4%BA%EF%BC%9A%E2%80%9Cweb%E9%A1%B5%E9%9D%A2%E5%B1%95%E7%A4%BA%E7%9A%84%E6%95%88%E6%9E%9C%E5%9B%A0%E4%BA%BA%E8%80%8C%E5%BC%82%E2%80%9C%EF%BC%9B%E7%BC%BA%E7%82%B9%EF%BC%9A1-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%8A%A8%E6%80%81web%E8%B5%84%E6%BA%90%E5%87%BA%E7%8E%B0%E4%BA%86%E9%94%99%E8%AF%AF%EF%BC%8C%E6%88%91%E4%BB%AC%E9%9C%80%E8%A6%81%E9%87%8D%E6%96%B0%E7%BC%96%E5%86%99%E6%88%91%E4%BB%AC%E7%9A%84%E5%90%8E%E5%8F%B0%E7%A8%8B%E5%BA%8F%EF%BC%8C%E9%87%8D%E6%96%B0%E5%8F%91%E5%B8%83%EF%BC%9B2-%E5%81%9C%E6%9C%BA%E7%BB%B4%E6%8A%A4%E4%BC%98%E7%82%B9%EF%BC%9A1-web%E9%A1%B5%E9%9D%A2%E5%8F%AF%E4%BB%A5%E5%8A%A8%E6%80%81%E6%9B%B4%E6%96%B0%EF%BC%8C%E6%89%80%E6%9C%89%E7%94%A8%E6%88%B7%E7%9C%8B%E5%88%B0%E7%9A%84%E9%83%BD%E4%B8%8D%E6%98%AF%E5%90%8C%E4%B8%80%E4%B8%AA%E9%A1%B5%E9%9D%A22-%E5%AE%83%E5%8F%AF%E4%BB%A5%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%A4%E4%BA%92%EF%BC%88%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%EF%BC%9A%E6%B3%A8%E5%86%8C%EF%BC%8C%E4%B8%AA%E4%BA%BA%E4%BF%A1%E6%81%AF%EF%BC%893-%E6%9E%B6%E6%9E%84%E5%B8%88%E6%9B%B4%E7%89%9B%E9%80%BC"><span class="nav-number">1.7.</span> <span class="nav-text">页面会动态展示：“web页面展示的效果因人而异“；缺点：1.服务器的动态web资源出现了错误，我们需要重新编写我们的后台程序，重新发布；2.停机维护优点：1.web页面可以动态更新，所有用户看到的都不是同一个页面2.它可以和数据库交互（数据持久化：注册，个人信息）3.架构师更牛逼</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2%E3%80%81Web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">2、Web服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1%E3%80%81%E6%8A%80%E6%9C%AF%E8%AE%B2%E8%A7%A3"><span class="nav-number">2.1.</span> <span class="nav-text">2.1、技术讲解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-x2F-S%EF%BC%9A%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8C%E6%9C%8D%E5%8A%A1%E5%99%A8C-x2F-S%EF%BC%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%92%8C%E6%9C%8D%E5%8A%A1%E5%99%A8sun%E5%85%AC%E5%8F%B8%E4%B8%BB%E6%8E%A8%E7%9A%84B-x2F-S%E6%9E%B6%E6%9E%84%E5%9F%BA%E4%BA%8EJava%E8%AF%AD%E8%A8%80%E7%9A%84%EF%BC%88%E6%89%80%E6%9C%89%E5%A4%A7%E5%85%AC%E5%8F%B8%EF%BC%8C%E6%88%96%E8%80%85%E4%B8%80%E4%BA%9B%E5%BC%80%E6%BA%90%E7%9A%84%E7%BB%84%E4%BB%B6%EF%BC%8C%E9%83%BD%E6%98%AF%E7%94%A8java%E5%86%99%E7%9A%84%EF%BC%89%E5%8F%AF%E4%BB%A5%E6%89%BF%E8%BD%BD%E4%B8%89%E9%AB%98%E9%97%AE%E9%A2%98%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%BD%B1%E5%93%8D%EF%BC%9B%EF%BC%88%E9%AB%98%E5%B9%B6%E5%8F%91%EF%BC%8C%E9%AB%98%E5%8F%AF%E7%94%A8%EF%BC%8C%E9%AB%98%E6%80%A7%E8%83%BD%EF%BC%89%E8%AF%AD%E6%B3%95%E5%83%8FASP%EF%BC%8CASP%E2%80%93-gt-JSP%EF%BC%8C%E5%8A%A0%E5%BC%BA%E5%B8%82%E5%9C%BA%E5%BC%BA%E5%BA%A6%EF%BC%9B"><span class="nav-number">2.2.</span> <span class="nav-text">B&#x2F;S：浏览器和服务器C&#x2F;S：客户端和服务器sun公司主推的B&#x2F;S架构基于Java语言的（所有大公司，或者一些开源的组件，都是用java写的）可以承载三高问题带来的影响；（高并发，高可用，高性能）语法像ASP，ASP–&gt;JSP，加强市场强度；</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2%E3%80%81web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">2.3.</span> <span class="nav-text">2.2、web服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jdk%E5%92%8Cjre%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A%E4%B8%80%E4%B8%AA-java%EF%BC%8C%E4%B8%80%E4%B8%AA-class"><span class="nav-number">2.4.</span> <span class="nav-text">jdk和jre的区别：一个.java，一个.class</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3%E3%80%81Tomcat"><span class="nav-number">3.</span> <span class="nav-text">3、Tomcat</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1%E3%80%81%E5%AE%89%E8%A3%85Tomcat"><span class="nav-number">3.1.</span> <span class="nav-text">3.1、安装Tomcat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tomcat%E5%AE%98%E7%BD%91%EF%BC%9Ahttp-tomcat-apache-org-%E9%87%87%E7%94%A8%E4%BA%86Tomcat-9-%E7%9A%84%E7%89%88%E6%9C%AC"><span class="nav-number">3.2.</span> <span class="nav-text">Tomcat官网：http:&#x2F;&#x2F;tomcat.apache.org&#x2F;采用了Tomcat 9 的版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2%E3%80%81Tomcat%E5%90%AF%E5%8A%A8%E5%92%8C%E9%85%8D%E7%BD%AE"><span class="nav-number">3.3.</span> <span class="nav-text">3.2、Tomcat启动和配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jsp%E5%B0%B1%E6%98%AF%E5%9C%A8HTML%E9%87%8C%E9%9D%A2%E5%B5%8C%E5%85%A5%E4%B8%80%E4%BA%9Bjava%E4%BB%A3%E7%A0%81%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%EF%BC%9A%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">3.4.</span> <span class="nav-text">jsp就是在HTML里面嵌入一些java代码乱码问题：服务器核心配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1%E3%80%81%E4%BF%AE%E6%94%B9%E8%AE%BF%E9%97%AE%E9%A1%B5%E9%9D%A2"><span class="nav-number">3.4.1.</span> <span class="nav-text">3.2.1、修改访问页面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9D-Java-apache-tomcat-9-0-37-webapps-ROOT%E4%B8%8B%E7%9A%84index-jsp%EF%BC%8C%E4%BF%AE%E6%94%B9%E4%B9%8B%E5%90%8E%E5%88%B7%E6%96%B0%E5%8D%B3%E5%8F%AF%EF%BC%8C%E4%B8%8D%E9%9C%80%E8%A6%81%E9%87%8D%E5%90%AF%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">3.5.</span> <span class="nav-text">修改D:\Java\apache-tomcat-9.0.37\webapps\ROOT下的index.jsp，修改之后刷新即可，不需要重启服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2%E3%80%81%E4%BF%AE%E6%94%B9%E8%AE%BF%E9%97%AE%E7%AB%AF%E5%8F%A3%E5%8F%B7"><span class="nav-number">3.5.1.</span> <span class="nav-text">3.2.2、修改访问端口号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9D-Java-apache-tomcat-9-0-37-conf%E4%B8%8B%E7%9A%84server-xml%EF%BC%8C%E6%9B%B4%E6%94%B9%E4%BA%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%8C%E5%BF%85%E9%A1%BB%E9%87%8D%E5%90%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E5%90%A6%E5%88%99%E6%97%A0%E6%B3%95%E7%94%9F%E6%95%88%E3%80%82"><span class="nav-number">3.6.</span> <span class="nav-text">修改D:\Java\apache-tomcat-9.0.37\conf下的server.xml，更改了服务器的配置文件，必须重启服务器，否则无法生效。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-3%E3%80%81%E4%BF%AE%E6%94%B9%E5%9F%9F%E5%90%8D"><span class="nav-number">3.6.1.</span> <span class="nav-text">3.2.3、修改域名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9D-Java-apache-tomcat-9-0-37-conf%E4%B8%8B%E7%9A%84server-xml%EF%BC%8C%E6%9B%B4%E6%94%B9%E4%BA%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%8C%E5%BF%85%E9%A1%BB%E9%87%8D%E5%90%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E5%90%A6%E5%88%99%E6%97%A0%E6%B3%95%E7%94%9F%E6%95%88%E3%80%82%E4%B8%8D%E8%A6%81%E4%BF%AE%E6%94%B9%E5%BC%95%E6%93%8E%E9%87%8C%E9%9D%A2%E7%9A%84%E5%93%A6%EF%BC%8C%E4%BF%AE%E6%94%B9%E6%A0%87%E7%AD%BE%E4%B8%AD%E7%9A%84%EF%BC%8C%E4%BF%AE%E6%94%B9%E4%B9%8B%E5%90%8E%E8%BF%98%E5%8F%AF%E4%BB%A5%E8%AE%BF%E9%97%AE%E5%88%B0%E5%90%97%EF%BC%9F%E4%BF%AE%E6%94%B9C-Windows-System32-drivers-etc%E4%B8%8B%E7%9A%84hosts%E6%96%87%E4%BB%B6%EF%BC%8C%E6%9B%B4%E6%94%B9%E4%BA%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%8C%E5%BF%85%E9%A1%BB%E9%87%8D%E5%90%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E5%90%A6%E5%88%99%E6%97%A0%E6%B3%95%E7%94%9F%E6%95%88%E3%80%82Windows%E5%BA%95%E5%B1%82%E6%96%87%E4%BB%B6%E8%A2%AB%E4%BF%AE%E6%94%B9%EF%BC%8C%E6%8F%90%E7%A4%BA%E6%9D%83%E9%99%90%E4%B8%8D%E5%A4%9F%EF%BC%8C%E9%87%87%E7%94%A8%E7%AE%A1%E7%90%86%E5%91%98%E6%A8%A1%E5%BC%8F%E5%90%AF%E5%8A%A8%E3%80%82"><span class="nav-number">3.7.</span> <span class="nav-text">修改D:\Java\apache-tomcat-9.0.37\conf下的server.xml，更改了服务器的配置文件，必须重启服务器，否则无法生效。不要修改引擎里面的哦，修改标签中的，修改之后还可以访问到吗？修改C:\Windows\System32\drivers\etc下的hosts文件，更改了服务器的配置文件，必须重启服务器，否则无法生效。Windows底层文件被修改，提示权限不够，采用管理员模式启动。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-4%E3%80%81%E4%BF%AE%E6%94%B9%E5%BA%94%E7%94%A8%E5%AD%98%E6%94%BE%E7%9B%AE%E5%BD%95"><span class="nav-number">3.7.1.</span> <span class="nav-text">3.2.4、修改应用存放目录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">3.8.</span> <span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-5%E3%80%81%E6%80%BB%E7%BB%93"><span class="nav-number">3.8.1.</span> <span class="nav-text">3.2.5、总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E4%BB%A5%E9%85%8D%E7%BD%AE%E5%90%AF%E5%8A%A8%E7%9A%84%E7%AB%AF%E5%8F%A3%E5%8F%B71-Tomcat-%E7%9A%84%E9%BB%98%E8%AE%A4%E7%AB%AF%E5%8F%A3%E5%8F%B7%E4%B8%BA%EF%BC%9A80802-MySQL-%E7%9A%84%E9%BB%98%E8%AE%A4%E7%AB%AF%E5%8F%A3%E5%8F%B7%E4%B8%BA%EF%BC%9A33063-HTTP-%E7%9A%84%E9%BB%98%E8%AE%A4%E7%AB%AF%E5%8F%A3%E5%8F%B7%E4%B8%BA%EF%BC%9A804-HTTPS-%E7%9A%84%E9%BB%98%E8%AE%A4%E7%AB%AF%E5%8F%A3%E5%8F%B7%E4%B8%BA%EF%BC%9A443%E5%8F%AF%E4%BB%A5%E9%85%8D%E7%BD%AE%E4%B8%BB%E6%9C%BA%E5%90%8D%E7%A7%B0%E9%BB%98%E8%AE%A4%E7%9A%84%E4%B8%BB%E6%9C%BA%E5%90%8D%E7%A7%B0%EF%BC%9Alocalhost%E2%80%93-gt-127-0-0-1%E9%BB%98%E8%AE%A4%E7%9A%84%E7%BD%91%E7%AB%99%E5%BA%94%E7%94%A8%E5%AD%98%E6%94%BE%E7%9A%84%E4%BD%8D%E7%BD%AE%E4%B8%BA%EF%BC%9Awebapps%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">3.9.</span> <span class="nav-text">可以配置启动的端口号1.Tomcat 的默认端口号为：80802.MySQL 的默认端口号为：33063.HTTP 的默认端口号为：804.HTTPS 的默认端口号为：443可以配置主机名称默认的主机名称：localhost–&gt;127.0.0.1默认的网站应用存放的位置为：webapps文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3%E3%80%81%E5%8F%91%E5%B8%83%E4%B8%80%E4%B8%AA%E7%BD%91%E7%AB%99"><span class="nav-number">3.10.</span> <span class="nav-text">3.3、发布一个网站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E4%BC%9A%E5%B0%B1%E6%A8%A1%E4%BB%BF"><span class="nav-number">3.11.</span> <span class="nav-text">不会就模仿</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5%E3%80%81%E7%BD%91%E7%AB%99%E7%BB%93%E6%9E%84%EF%BC%88%E4%B9%9F%E6%98%AF%E7%BA%A6%E5%AE%9A%EF%BC%89"><span class="nav-number">3.12.</span> <span class="nav-text">3.5、网站结构（也是约定）</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="aynami"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">aynami</p>
+  <div class="site-description" itemprop="description">欢迎来到我的世界💜</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/aynami0" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;aynami0" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1330318158@qq.com" title="E-Mail → mailto:1330318158@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://space.bilibili.com/23001796" title="bilibili → https:&#x2F;&#x2F;space.bilibili.com&#x2F;23001796" rel="noopener" target="_blank"><i class="fa bilibili fa-fw"></i>bilibili</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">aynami</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">3k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">12 分钟</span>
+</div>
+
+<!--
+  <div class="powered-by">footer.powered
+  </div>-->
+
+<!-- 新增访客统计代码 -->
+
+<div class="busuanzi-count">
+    <script async="" src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      访问用户： <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人
+    </span>
+    <div class="powered-by"></div>
+    <span class="site-uv">
+      <i class="fa fa-eye"></i>
+      访问次数： <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次
+    </span>
+    <!-- 博客字数统计 -->
+    <span class="site-pv">
+      <i class="fa fa-pencil"></i>
+      博客全站共： <span class="post-count">3k</span> 字
+    </span>
+</div>
+<!-- 新增访客统计代码 END-->
+
+
+<!-- <br /> -->
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<!-- <span id="times">载入时分秒...</span> -->
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("11/17/2022 8:00:00");//此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); 
+        if(String(snum).length ==1 ){snum = "0" + snum;}
+        // var times = document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "+hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+setInterval("createtime()",250);
+</script>
+
+
+        
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="pjax">
+  
+
+  
+
+    </div>
+
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/fireworks.js"></script>
+
+  <a target="_blank" rel="noopener" href="https://github.com/aynami0" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right"},"mobile":{"show":true}});</script></body>
+</html>
+
