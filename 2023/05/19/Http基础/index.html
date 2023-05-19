@@ -22,30 +22,33 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="欢迎来到我的世界💜">
-<meta property="og:type" content="website">
-<meta property="og:title" content="aynami&#39;s Blog">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="1、HTTPhttp（超文本传输协议）是一个简单的请求-响应协议，它通常运行在TCP之上。·文本：html，字符串，-…·超文本：图片，音乐，视频，定位，地图…·80https：（s 安全的）·443">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java学习之Http基础">
+<meta property="og:url" content="http://example.com/2023/05/19/Http%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="aynami&#39;s Blog">
-<meta property="og:description" content="欢迎来到我的世界💜">
+<meta property="og:description" content="1、HTTPhttp（超文本传输协议）是一个简单的请求-响应协议，它通常运行在TCP之上。·文本：html，字符串，-…·超文本：图片，音乐，视频，定位，地图…·80https：（s 安全的）·443">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-05-19T07:35:22.000Z">
+<meta property="article:modified_time" content="2023-05-19T09:02:21.115Z">
 <meta property="article:author" content="aynami">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2023/05/19/Http%E5%9F%BA%E7%A1%80/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>aynami's Blog</title>
+  <title>Java学习之Http基础 | aynami's Blog</title>
   
 
 
@@ -189,9 +192,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -207,10 +211,9 @@
       <meta itemprop="name" content="aynami's Blog">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/05/19/Http%E5%9F%BA%E7%A1%80/" class="post-title-link" itemprop="url">Java学习之Http基础</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Java学习之Http基础
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -232,7 +235,14 @@
                 </span>
             </span>
 
-          <br>
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -257,300 +267,52 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="1、HTTP"><a href="#1、HTTP" class="headerlink" title="1、HTTP"></a>1、HTTP</h1><h2 id="http（超文本传输协议）是一个简单的请求-响应协议，它通常运行在TCP之上。·文本：html，字符串，-…·超文本：图片，音乐，视频，定位，地图…·80https：（s-安全的）·443"><a href="#http（超文本传输协议）是一个简单的请求-响应协议，它通常运行在TCP之上。·文本：html，字符串，-…·超文本：图片，音乐，视频，定位，地图…·80https：（s-安全的）·443" class="headerlink" title="http（超文本传输协议）是一个简单的请求-响应协议，它通常运行在TCP之上。·文本：html，字符串，-…·超文本：图片，音乐，视频，定位，地图…·80https：（s 安全的）·443"></a>http（超文本传输协议）是一个简单的请求-响应协议，它通常运行在TCP之上。<br>·文本：html，字符串，-…<br>·超文本：图片，音乐，视频，定位，地图…<br>·80<br>https：（s 安全的）<br>·443
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/05/19/Http%E5%9F%BA%E7%A1%80/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+        <h1 id="1、HTTP"><a href="#1、HTTP" class="headerlink" title="1、HTTP"></a>1、HTTP</h1><h2 id="http（超文本传输协议）是一个简单的请求-响应协议，它通常运行在TCP之上。·文本：html，字符串，-…·超文本：图片，音乐，视频，定位，地图…·80https：（s-安全的）·443"><a href="#http（超文本传输协议）是一个简单的请求-响应协议，它通常运行在TCP之上。·文本：html，字符串，-…·超文本：图片，音乐，视频，定位，地图…·80https：（s-安全的）·443" class="headerlink" title="http（超文本传输协议）是一个简单的请求-响应协议，它通常运行在TCP之上。·文本：html，字符串，-…·超文本：图片，音乐，视频，定位，地图…·80https：（s 安全的）·443"></a>http（超文本传输协议）是一个简单的请求-响应协议，它通常运行在TCP之上。<br>·文本：html，字符串，-…<br>·超文本：图片，音乐，视频，定位，地图…<br>·80<br>https：（s 安全的）<br>·443<span id="more"></span></h2><h2 id="1-2、两个时代"><a href="#1-2、两个时代" class="headerlink" title="1.2、两个时代"></a>1.2、两个时代</h2><h2 id="1-http1-0HTTP-x2F-1-0-：客户端可以与web服务器连接后，只能获得一个web资源，断开连接（烧流量）2-http2-0HTTP-x2F-1-1：客户端可以与web服务器连接后，可以获得多个web资源，不用每次请求连接"><a href="#1-http1-0HTTP-x2F-1-0-：客户端可以与web服务器连接后，只能获得一个web资源，断开连接（烧流量）2-http2-0HTTP-x2F-1-1：客户端可以与web服务器连接后，可以获得多个web资源，不用每次请求连接" class="headerlink" title="1.http1.0HTTP&#x2F;1.0 ：客户端可以与web服务器连接后，只能获得一个web资源，断开连接（烧流量）2.http2.0HTTP&#x2F;1.1：客户端可以与web服务器连接后，可以获得多个web资源，不用每次请求连接"></a>1.http1.0<br>HTTP&#x2F;1.0 ：客户端可以与web服务器连接后，只能获得一个web资源，断开连接（烧流量）<br>2.http2.0<br>HTTP&#x2F;1.1：客户端可以与web服务器连接后，可以获得多个web资源，不用每次请求连接</h2><h2 id="1-3、Http请求"><a href="#1-3、Http请求" class="headerlink" title="1.3、Http请求"></a>1.3、Http请求</h2><h2 id="客户端–发请求-Request-–服务器百度：General百度：Request-Headers1、请求行请求行中的请求方式：GET请求方式：Get，Post，HEAD，DELETE，PUT，TRACT…GET：一次请求可以携带的参数比较少，大小有限制，会在浏览器的URL地址栏显示数据内容，不安全，但高效。POST：一次请求可以携带的参数没有限制，大小没有限制，不会在浏览器的URL地址栏显示数据内容，安全，但不高效。2、消息头"><a href="#客户端–发请求-Request-–服务器百度：General百度：Request-Headers1、请求行请求行中的请求方式：GET请求方式：Get，Post，HEAD，DELETE，PUT，TRACT…GET：一次请求可以携带的参数比较少，大小有限制，会在浏览器的URL地址栏显示数据内容，不安全，但高效。POST：一次请求可以携带的参数没有限制，大小没有限制，不会在浏览器的URL地址栏显示数据内容，安全，但不高效。2、消息头" class="headerlink" title="客户端–发请求(Request)–服务器百度：General百度：Request Headers1、请求行请求行中的请求方式：GET请求方式：Get，Post，HEAD，DELETE，PUT，TRACT…GET：一次请求可以携带的参数比较少，大小有限制，会在浏览器的URL地址栏显示数据内容，不安全，但高效。POST：一次请求可以携带的参数没有限制，大小没有限制，不会在浏览器的URL地址栏显示数据内容，安全，但不高效。2、消息头"></a>客户端–发请求(Request)–服务器<br>百度：General<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Accept: text/html</span><br><span class="line">Request URL: https://www.baidu.com/  //请求地址</span><br><span class="line">Request Method: GET					//get方法，post方法</span><br><span class="line">Status Code: 200 OK					//状态码：200</span><br><span class="line">Remote Address: 14.215.177.38:443	//远端服务器地址</span><br></pre></td></tr></table></figure><br>百度：Request Headers<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Accept: text/html</span><br><span class="line">Accept-Encoding: gzip, deflate, br  //编码</span><br><span class="line">Accept-Language: en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7 //语言</span><br><span class="line">Cache-Control: max-age=0    //缓存控制</span><br><span class="line">Connection: keep-alive		//保持连接</span><br></pre></td></tr></table></figure><br>1、请求行<br>请求行中的请求方式：GET<br>请求方式：Get，Post，HEAD，DELETE，PUT，TRACT…<br>GET：一次请求可以携带的参数比较少，大小有限制，会在浏览器的URL地址栏显示数据内容，不安全，但高效。<br>POST：一次请求可以携带的参数没有限制，大小没有限制，不会在浏览器的URL地址栏显示数据内容，安全，但不高效。<br>2、消息头<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Accept: //告诉服务器它所支持的数据类型</span><br><span class="line">Accept-Encoding: //支持哪种编码格式：GBK，UTF-8，GB2312，ISO8859-1</span><br><span class="line">Accept-Language: //告诉服务器它的语言环境</span><br><span class="line">Cache-Control: //缓存控制</span><br><span class="line">Connection: //告诉服务器，请求完成是断开还是保持连接</span><br><span class="line">HOST: //主机</span><br><span class="line">...</span><br></pre></td></tr></table></figure></h2><h2 id="1-4、Http响应"><a href="#1-4、Http响应" class="headerlink" title="1.4、Http响应"></a>1.4、Http响应</h2><p>服务器–响应–客户端<br>百度：General</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Request URL: https://www.baidu.com/  //请求地址</span><br><span class="line">Request Method: GET					//get方法，post方法</span><br><span class="line">Status Code: 200 OK					//状态码：200</span><br><span class="line">Remote Address: 14.215.177.38:443	//远端服务器地址</span><br></pre></td></tr></table></figure>
+<p>1.响应体<br>百度：Response Headers</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Cache-Control: private						//缓存控制</span><br><span class="line">Connection: keep-alive						//保持连接</span><br><span class="line">Content-Encoding: gzip						//编码</span><br><span class="line">Content-Type: text/html;charset=utf-8		//类型</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Accept: //告诉服务器它所支持的数据类型</span><br><span class="line">Accept-Encoding: //支持哪种编码格式：GBK，UTF-8，GB2312，ISO8859-1</span><br><span class="line">Accept-Language: //告诉服务器它的语言环境</span><br><span class="line">Cache-Control: //缓存控制</span><br><span class="line">Connection: //告诉服务器，请求完成是断开还是保持连接</span><br><span class="line">HOST: //主机</span><br><span class="line">Refresh://告诉客户端多久刷新一次</span><br><span class="line">Location：//让网页重新定位；</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>2，响应状态码<br>200：请求响应成功 200<br>3xx：请求重定向<br>重定向：你重新到我给你的新位置去找<br>4xx：找不到资源 404<br>资源不存在<br>5xx：服务器代码错误 500 502：网关错误</p>
+
     </div>
 
     
     
     
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------已经到底啦！<i class="fa fa-paw"></i>-------------</div>
+    
+</div>
+
+  
+</div>
+
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"># java</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/19/java%E5%AD%A6%E4%B9%A0%E4%B9%8Bweb%E7%AF%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="aynami">
-      <meta itemprop="description" content="欢迎来到我的世界💜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="aynami's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/05/19/java%E5%AD%A6%E4%B9%A0%E4%B9%8Bweb%E7%AF%87/" class="post-title-link" itemprop="url">Java学习之JavaWeb篇</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-05-19 13:24:33 / 修改时间：16:50:39" itemprop="dateCreated datePublished" datetime="2023-05-19T13:24:33+08:00">2023-05-19</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javaweb/" itemprop="url" rel="index"><span itemprop="name">javaweb</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>7 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="1、基本概念"><a href="#1、基本概念" class="headerlink" title="1、基本概念"></a>1、基本概念</h1><h2 id="web开发web，网页的意思，www-baidu-com静态web-1-html，css2-提供给所有人看的数据，始终不会变化！动态web-1-淘宝，几乎是所有的网站；-千人千面-2-提供给所有人看的数据，始终会变化，每个人在不同的时间，地点看到的信息各不相同。3-技术栈：ServLet-x2F-JSP，ASP，PHP"><a href="#web开发web，网页的意思，www-baidu-com静态web-1-html，css2-提供给所有人看的数据，始终不会变化！动态web-1-淘宝，几乎是所有的网站；-千人千面-2-提供给所有人看的数据，始终会变化，每个人在不同的时间，地点看到的信息各不相同。3-技术栈：ServLet-x2F-JSP，ASP，PHP" class="headerlink" title="web开发web，网页的意思，www.baidu.com静态web:1.html，css2.提供给所有人看的数据，始终不会变化！动态web:1.淘宝，几乎是所有的网站；(千人千面)2.提供给所有人看的数据，始终会变化，每个人在不同的时间，地点看到的信息各不相同。3.技术栈：ServLet&#x2F;JSP，ASP，PHP"></a>web开发<br>web，网页的意思，<a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a><br>静态web:<br>1.html，css<br>2.提供给所有人看的数据，始终不会变化！
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/05/19/java%E5%AD%A6%E4%B9%A0%E4%B9%8Bweb%E7%AF%87/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="aynami">
-      <meta itemprop="description" content="欢迎来到我的世界💜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="aynami's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/05/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="post-title-link" itemprop="url">SpringBoot基础</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-05-18 01:13:45" itemprop="dateCreated datePublished" datetime="2023-05-18T01:13:45+08:00">2023-05-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-19 16:18:32" itemprop="dateModified" datetime="2023-05-19T16:18:32+08:00">2023-05-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SpringBoot/" itemprop="url" rel="index"><span itemprop="name">SpringBoot</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>5 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="SpringBoot基础"><a href="#SpringBoot基础" class="headerlink" title="SpringBoot基础"></a>SpringBoot基础</h1><h2 id="学习目标"><a href="#学习目标" class="headerlink" title="学习目标:"></a>学习目标:</h2><h2 id="1-能够理解Spring的优缺点2-能够理解SpringBoot的特点3-能够理解SpringBoot的核心功能4-能够搭建SpringBoot的环境5-能够完成application-properties配置文件的配置6-能够完成application-yml配置文件的配置7-能够使用SpringBoot集成Mybatis8-能够使用SpringBoot集成Junit9-能够使用SpringBoot集成SpringData-JPA"><a href="#1-能够理解Spring的优缺点2-能够理解SpringBoot的特点3-能够理解SpringBoot的核心功能4-能够搭建SpringBoot的环境5-能够完成application-properties配置文件的配置6-能够完成application-yml配置文件的配置7-能够使用SpringBoot集成Mybatis8-能够使用SpringBoot集成Junit9-能够使用SpringBoot集成SpringData-JPA" class="headerlink" title="1.能够理解Spring的优缺点2.能够理解SpringBoot的特点3.能够理解SpringBoot的核心功能4.能够搭建SpringBoot的环境5.能够完成application.properties配置文件的配置6.能够完成application.yml配置文件的配置7.能够使用SpringBoot集成Mybatis8.能够使用SpringBoot集成Junit9.能够使用SpringBoot集成SpringData JPA"></a>1.能够理解Spring的优缺点<br>2.能够理解SpringBoot的特点<br>3.能够理解SpringBoot的核心功能
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/05/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/05/19/java%E5%AD%A6%E4%B9%A0%E4%B9%8Bweb%E7%AF%87/" rel="prev" title="Java学习之JavaWeb篇">
+      <i class="fa fa-chevron-left"></i> Java学习之JavaWeb篇
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/17/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="aynami">
-      <meta itemprop="description" content="欢迎来到我的世界💜">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="aynami's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/05/17/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-05-17 23:46:33" itemprop="dateCreated datePublished" datetime="2023-05-17T23:46:33+08:00">2023-05-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-18 13:45:24" itemprop="dateModified" datetime="2023-05-18T13:45:24+08:00">2023-05-18</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>79</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2023/05/17/hello-world/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -603,6 +365,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1%E3%80%81HTTP"><span class="nav-number">1.</span> <span class="nav-text">1、HTTP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#http%EF%BC%88%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE%EF%BC%89%E6%98%AF%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E8%AF%B7%E6%B1%82-%E5%93%8D%E5%BA%94%E5%8D%8F%E8%AE%AE%EF%BC%8C%E5%AE%83%E9%80%9A%E5%B8%B8%E8%BF%90%E8%A1%8C%E5%9C%A8TCP%E4%B9%8B%E4%B8%8A%E3%80%82%C2%B7%E6%96%87%E6%9C%AC%EF%BC%9Ahtml%EF%BC%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C-%E2%80%A6%C2%B7%E8%B6%85%E6%96%87%E6%9C%AC%EF%BC%9A%E5%9B%BE%E7%89%87%EF%BC%8C%E9%9F%B3%E4%B9%90%EF%BC%8C%E8%A7%86%E9%A2%91%EF%BC%8C%E5%AE%9A%E4%BD%8D%EF%BC%8C%E5%9C%B0%E5%9B%BE%E2%80%A6%C2%B780https%EF%BC%9A%EF%BC%88s-%E5%AE%89%E5%85%A8%E7%9A%84%EF%BC%89%C2%B7443"><span class="nav-number">1.1.</span> <span class="nav-text">http（超文本传输协议）是一个简单的请求-响应协议，它通常运行在TCP之上。·文本：html，字符串，-…·超文本：图片，音乐，视频，定位，地图…·80https：（s 安全的）·443</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2%E3%80%81%E4%B8%A4%E4%B8%AA%E6%97%B6%E4%BB%A3"><span class="nav-number">1.2.</span> <span class="nav-text">1.2、两个时代</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-http1-0HTTP-x2F-1-0-%EF%BC%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%8F%AF%E4%BB%A5%E4%B8%8Eweb%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9E%E6%8E%A5%E5%90%8E%EF%BC%8C%E5%8F%AA%E8%83%BD%E8%8E%B7%E5%BE%97%E4%B8%80%E4%B8%AAweb%E8%B5%84%E6%BA%90%EF%BC%8C%E6%96%AD%E5%BC%80%E8%BF%9E%E6%8E%A5%EF%BC%88%E7%83%A7%E6%B5%81%E9%87%8F%EF%BC%892-http2-0HTTP-x2F-1-1%EF%BC%9A%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%8F%AF%E4%BB%A5%E4%B8%8Eweb%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9E%E6%8E%A5%E5%90%8E%EF%BC%8C%E5%8F%AF%E4%BB%A5%E8%8E%B7%E5%BE%97%E5%A4%9A%E4%B8%AAweb%E8%B5%84%E6%BA%90%EF%BC%8C%E4%B8%8D%E7%94%A8%E6%AF%8F%E6%AC%A1%E8%AF%B7%E6%B1%82%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.3.</span> <span class="nav-text">1.http1.0HTTP&#x2F;1.0 ：客户端可以与web服务器连接后，只能获得一个web资源，断开连接（烧流量）2.http2.0HTTP&#x2F;1.1：客户端可以与web服务器连接后，可以获得多个web资源，不用每次请求连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3%E3%80%81Http%E8%AF%B7%E6%B1%82"><span class="nav-number">1.4.</span> <span class="nav-text">1.3、Http请求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E2%80%93%E5%8F%91%E8%AF%B7%E6%B1%82-Request-%E2%80%93%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%99%BE%E5%BA%A6%EF%BC%9AGeneral%E7%99%BE%E5%BA%A6%EF%BC%9ARequest-Headers1%E3%80%81%E8%AF%B7%E6%B1%82%E8%A1%8C%E8%AF%B7%E6%B1%82%E8%A1%8C%E4%B8%AD%E7%9A%84%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%EF%BC%9AGET%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%EF%BC%9AGet%EF%BC%8CPost%EF%BC%8CHEAD%EF%BC%8CDELETE%EF%BC%8CPUT%EF%BC%8CTRACT%E2%80%A6GET%EF%BC%9A%E4%B8%80%E6%AC%A1%E8%AF%B7%E6%B1%82%E5%8F%AF%E4%BB%A5%E6%90%BA%E5%B8%A6%E7%9A%84%E5%8F%82%E6%95%B0%E6%AF%94%E8%BE%83%E5%B0%91%EF%BC%8C%E5%A4%A7%E5%B0%8F%E6%9C%89%E9%99%90%E5%88%B6%EF%BC%8C%E4%BC%9A%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84URL%E5%9C%B0%E5%9D%80%E6%A0%8F%E6%98%BE%E7%A4%BA%E6%95%B0%E6%8D%AE%E5%86%85%E5%AE%B9%EF%BC%8C%E4%B8%8D%E5%AE%89%E5%85%A8%EF%BC%8C%E4%BD%86%E9%AB%98%E6%95%88%E3%80%82POST%EF%BC%9A%E4%B8%80%E6%AC%A1%E8%AF%B7%E6%B1%82%E5%8F%AF%E4%BB%A5%E6%90%BA%E5%B8%A6%E7%9A%84%E5%8F%82%E6%95%B0%E6%B2%A1%E6%9C%89%E9%99%90%E5%88%B6%EF%BC%8C%E5%A4%A7%E5%B0%8F%E6%B2%A1%E6%9C%89%E9%99%90%E5%88%B6%EF%BC%8C%E4%B8%8D%E4%BC%9A%E5%9C%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84URL%E5%9C%B0%E5%9D%80%E6%A0%8F%E6%98%BE%E7%A4%BA%E6%95%B0%E6%8D%AE%E5%86%85%E5%AE%B9%EF%BC%8C%E5%AE%89%E5%85%A8%EF%BC%8C%E4%BD%86%E4%B8%8D%E9%AB%98%E6%95%88%E3%80%822%E3%80%81%E6%B6%88%E6%81%AF%E5%A4%B4"><span class="nav-number">1.5.</span> <span class="nav-text">客户端–发请求(Request)–服务器百度：General12345Accept: text&#x2F;htmlRequest URL: https:&#x2F;&#x2F;www.baidu.com&#x2F;  &#x2F;&#x2F;请求地址Request Method: GET					&#x2F;&#x2F;get方法，post方法Status Code: 200 OK					&#x2F;&#x2F;状态码：200Remote Address: 14.215.177.38:443	&#x2F;&#x2F;远端服务器地址百度：Request Headers12345Accept: text&#x2F;htmlAccept-Encoding: gzip, deflate, br  &#x2F;&#x2F;编码Accept-Language: en-US,en;q&#x3D;0.9,zh-CN;q&#x3D;0.8,zh;q&#x3D;0.7 &#x2F;&#x2F;语言Cache-Control: max-age&#x3D;0    &#x2F;&#x2F;缓存控制Connection: keep-alive		&#x2F;&#x2F;保持连接1、请求行请求行中的请求方式：GET请求方式：Get，Post，HEAD，DELETE，PUT，TRACT…GET：一次请求可以携带的参数比较少，大小有限制，会在浏览器的URL地址栏显示数据内容，不安全，但高效。POST：一次请求可以携带的参数没有限制，大小没有限制，不会在浏览器的URL地址栏显示数据内容，安全，但不高效。2、消息头1234567Accept: &#x2F;&#x2F;告诉服务器它所支持的数据类型Accept-Encoding: &#x2F;&#x2F;支持哪种编码格式：GBK，UTF-8，GB2312，ISO8859-1Accept-Language: &#x2F;&#x2F;告诉服务器它的语言环境Cache-Control: &#x2F;&#x2F;缓存控制Connection: &#x2F;&#x2F;告诉服务器，请求完成是断开还是保持连接HOST: &#x2F;&#x2F;主机...</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4%E3%80%81Http%E5%93%8D%E5%BA%94"><span class="nav-number">1.6.</span> <span class="nav-text">1.4、Http响应</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
